@@ -1,0 +1,62 @@
+/* ---castom-bigBtn-Solid--- */
+.castom-bigBtn-Solid {
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  -webkit-box-shadow: 0px 0px 24px rgba(234, 0, 41, 0.33);
+          box-shadow: 0px 0px 24px rgba(234, 0, 41, 0.33);
+  border: solid 1px #DC3131;
+  border-radius: 6px;
+  border-color: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  font-family: Lab Grotesque;
+  font-style: normal;
+  font-weight: 500;
+  color: #FFFFFF;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.castom-bigBtn-Solid:not(:disabled):hover {
+  background: #EA0029;
+  -webkit-box-shadow: 0px 0px 24px rgba(234, 0, 41, 0.33);
+          box-shadow: 0px 0px 24px rgba(234, 0, 41, 0.33);
+  border-radius: 6px;
+}
+
+.castom-bigBtn-Solid:disabled {
+  background: #BEC5CC;
+  -webkit-box-shadow: 0px 0px 24px #BEC5CC;
+          box-shadow: 0px 0px 24px #BEC5CC;
+  border-color: #BEC5CC;
+  cursor: auto;
+}
+
+/* ---castom-bigBtn-Trans--- */
+.castom-bigBtn-Trans {
+  border: 1px solid #FFFFFF;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 6px;
+  background: none;
+  font-family: Lab Grotesque;
+  font-style: normal;
+  font-weight: 500;
+  color: #FFFFFF;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.castom-bigBtn-Trans:not(:disabled):hover {
+  background: #FFFFFF;
+  border-radius: 6px;
+  color: black;
+}
+
+.castom-bigBtn-Trans:disabled {
+  background: #BEC5CC;
+  -webkit-box-shadow: 0px 0px 24px #BEC5CC;
+          box-shadow: 0px 0px 24px #BEC5CC;
+  border-color: #BEC5CC;
+  cursor: auto;
+}
+/*# sourceMappingURL=style.css.map */
