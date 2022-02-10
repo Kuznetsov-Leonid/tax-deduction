@@ -2,8 +2,11 @@
     font-family: Lab Grotesque;
     font-style: normal;
     font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
     color: #FFFFFF;
     transition: 0.3s;
+    margin: auto;
     cursor: pointer;
 }
 
@@ -15,6 +18,8 @@
     border: solid 1px #DC3131;
     border-radius: 6px;
     border-color: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+    height: 40px;
+    width: 100%;
     @include fontBtn;
 }
 .castom-bigBtn-Solid:not(:disabled):hover{
@@ -37,6 +42,8 @@
     box-sizing: border-box;
     border-radius: 6px;
     background: none;
+    width: 149px;
+    height: 40px;
     @include fontBtn;
 }
 .castom-bigBtn-Trans:not(:disabled):hover{

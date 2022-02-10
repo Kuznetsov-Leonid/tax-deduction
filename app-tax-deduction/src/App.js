@@ -1,27 +1,82 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Input from './components/UI_kit/input/input';
-import tags from './components/UI_kit/tag/tag';
+import { Container, Modal } from 'react-bootstrap';
+import './styles/app.css';
+import { useEffect, useState } from 'react';
+import AppModal from './components/modal/appModal/appModal';
 
+import Buttons from './components/UI_kit/button/button';
+import Tags from './components/UI_kit/tag/tag';
 
 function App() {
 
-  //Так достаются компоненты из полей классов
-  // const [value, setValue] = useState(0);
-  // const [inp, setInp] = useState(0);
+  const TextObj = {
+    title : "Налоговый вычет",
+    info : "Используйте налоговый вычет чтобы погасить ипотеку досрочно. Размер налогового вычета составляет не более 13% от своего официального годового дохода.",
+    titleInput : "Ваша зарплата в месяц",
+    titleTag : "Что уменьшаем?"
+  }
 
-  // useEffect(()=>{
-  //   setInp(Input.CastomInput);
-  // }, []);
+  //Достаём компоненты из ui_kit
+  const [butnSolid, setBtnSolid] = useState(); //Кнопки сплошные
+  const [butnTransparent, setBtnTransparent] = useState(); //Кнопки полые
+  
+  useEffect(()=>{
+    setBtnSolid(Buttons.BigBtnSolid);
+    setBtnTransparent(Buttons.BigBtnTransparent);
+      }, []);
 
-  //   useEffect(()=>{
-  //     setValue(tags.tag);
-  //   }, []);
+    //Модальное окно
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
 
 
   return (
   <>
+    <Container>
+      <div className='btn-start' onClick={handleShow}>
+        {butnTransparent}
+      </div>
+    </Container>
+
+    
+    <Modal show={show} onHide={handleClose}>
+    <Modal.Header 
+      className='close' 
+      closeButton>
+    </Modal.Header>
+      <Container>
+        <Modal.Body>
+            <div className='Modal-title'>
+              <h3>
+                {TextObj.title}
+              </h3>
+            </div>
+            <div className='Modal-info'>
+              <p>
+                {TextObj.info}
+              </p>
+            </div>
+            <div className='Modal-appModal-title'>
+              <h5>
+                  {TextObj.titleInput}
+              </h5>
+              <AppModal/>
+            </div>
+            <div className='Modal-tags-title'>
+              <h6>
+                {TextObj.titleTag}
+              </h6>
+              <Tags/>
+            </div>
+        </Modal.Body>
+        <Modal.Body>
+            <span>{butnSolid}</span>
+        </Modal.Body>
+      </Container>
+    </Modal>
   </>
   );
 }

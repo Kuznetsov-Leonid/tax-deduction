@@ -1,7 +1,7 @@
 import React from "react";
 import './style.css';
 
-const tag = () => {
+const Tags = () => {
     const ValueRadio = {
         value1 : "Платёж",
         value2 : "Срок"
@@ -21,8 +21,4 @@ const tag = () => {
         </>
     )
 }
-
-const tags = {
-    tag : tag
-}
-export default tags
+export default Tags

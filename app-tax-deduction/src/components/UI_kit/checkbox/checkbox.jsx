@@ -10,7 +10,7 @@ function Check(){
     )
 }
 
-const checkbox = () => {
+const Checkbox = {
     Check : Check
 }
-export default checkbox
+export default Checkbox
