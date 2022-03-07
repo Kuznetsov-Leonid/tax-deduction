@@ -3,8 +3,14 @@ import { Form, Button } from "react-bootstrap";
 import { useForm } from 'react-hook-form';
 import './style.css';
 
-//регулярка /^\d{1,}$/,
+
+
+//Валидация формы
 const AppModal = () => {
+
+    //Обработка ввода
+    const [input, setInput] = useState('');
+
     const {
         register,
         formState: {
@@ -14,11 +20,10 @@ const AppModal = () => {
         handleSubmit,
         reset,
     } = useForm({
-        mode: "onBlur"
+        mode: "onSubmit"
     }); 
-
-    const [input, setInput] = useState('');
     
+    //Расчётная операция
     function taxDeducation(){
         let result;
         if (input != " "){
@@ -26,11 +31,50 @@ const AppModal = () => {
         } else {
             result = null;
         }
+
         return +result; 
     }
-    const onSubmit = (data) => {
-        alert(taxDeducation());
+
+    function taxDeducationSec(){
+        let sec;
+        let tax = taxDeducation();
+        sec = tax / 3;
+
+        return +sec;
     }
+
+    const onSubmit = (data) => {
+        let relise = document.querySelector(".rel");
+        relise.classList.remove("displayNone");
+    }
+
+
+    const Relise = () => {
+        return(
+            <>
+                <p>
+                    Итого можете внести в качестве досрочных:
+                </p>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label={taxDeducation() + " " + "Рублей в 1-ый год"}/>
+                </Form.Group>
+                <hr />
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label={taxDeducation() + " " +"Рублей в 2-ой год"}/>
+                </Form.Group>
+                <hr />
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label={taxDeducation() + " " + "Рублей в 3-ий год"}/>
+                </Form.Group>
+                <hr />
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label={taxDeducationSec() + " " + "Рублей в 4-ый год"}/>
+                </Form.Group>
+                <hr />
+            </>
+        );
+    }
+    
     return(
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -54,10 +98,15 @@ const AppModal = () => {
                     type="submit"
                     style={{'text-decoration':'none'}} 
                     className="text_button" 
-                    variant="link">
+                    variant="link"
+                    id = "button1"
+                    >
                         Расчитать
                 </Button>
             </Form>
+            <div className="displayNone rel">
+                <Relise/>
+            </div>
         </>
     )
 }
