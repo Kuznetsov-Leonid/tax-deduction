@@ -99,7 +99,6 @@ const AppModal = () => {
                     style={{'text-decoration':'none'}} 
                     className="text_button" 
                     variant="link"
-                    id = "button1"
                     >
                         Расчитать
                 </Button>
